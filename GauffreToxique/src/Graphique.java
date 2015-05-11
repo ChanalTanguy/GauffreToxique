@@ -7,10 +7,7 @@ public class Graphique implements Runnable {
 	public void run() {
         // Creation d'une fenetre
         JFrame frame = new JFrame("Blue waffle");
-        
-        //recuperation de la taille de la fenetre
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        
+         
         // Creation du composant de dessin et ajout de l'objet de traitement
         // des evenements provenant de la souris
         Dessin mon_dessin = new Dessin(5,5);
@@ -29,10 +26,7 @@ public class Graphique implements Runnable {
         int tailleBordure = 25;
         
         //centrage de la fenetres
-        
-        frame.setLocation(
-        		screenSize.width-frame.getWidth()/2, 
-        		screenSize.height-frame.getHeight()/2);
+        frame.setLocationRelativeTo(null);
         
 		// On fixe la taille et on demarre
         frame.setSize(x*Constantes.tailleCase, y*Constantes.tailleCase + tailleBordure );
