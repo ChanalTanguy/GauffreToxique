@@ -28,7 +28,8 @@ public class Graphique implements Runnable {
         
         int tailleBordure = 25;
         
-        //centrage de la fenetre
+        //centrage de la fenetres
+        
         frame.setLocation(
         		screenSize.width-frame.getWidth()/2, 
         		screenSize.height-frame.getHeight()/2);
