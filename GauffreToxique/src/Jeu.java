@@ -20,7 +20,7 @@ public class Jeu {
 	}
 	
 	void boucle (){
-		
+		 
 	}
 	
 	void jouer (Point position) {

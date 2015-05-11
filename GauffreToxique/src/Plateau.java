@@ -30,7 +30,7 @@ public class Plateau {
 	
 	void updateMessage (String newMessage){
 		message = newMessage;
-	}
+	} 
 	
 	boolean verifCaseEmpoisonnee (Point position){
 		return (position.x == 0 && position.y == 0);
