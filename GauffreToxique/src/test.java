@@ -1,6 +1,6 @@
 
 public class test {
-	int JESUISUNSALAMI = -1;
+	int JESUISUNSALAMI = -2;
 	
 	void Youpalayoupi() {
 		
