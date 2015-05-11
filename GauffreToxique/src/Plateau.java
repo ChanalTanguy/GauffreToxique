@@ -14,6 +14,10 @@ public class Plateau {
 		}
 	}
 	
+	public boolean[][] getTab (){
+		return gauffre;
+	}
+	
 	boolean verifClick (Point position){
 		int ligne = position.x, colonne = position.y;
 		return gauffre[ligne][colonne];
