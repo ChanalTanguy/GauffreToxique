@@ -1,6 +1,7 @@
 Lundi 11/05
 * Conception de l'architecture du projet
 * Création et configuration du git
-* Création et développement de l'interface graphique
+* Création et écriture des classes Graphique et Dessin, gérant l'interface graphique
 * Création de la classe Jeu, gérant le déroulement d'un partie
-* Création et développement de la classe Plateau, gérant la grille de jeu
+* Création et écriture de la classe Plateau, gérant la grille de jeu
+* Création et écriture de la classe EcouteTerrain, qui prend en compte le clic du joueur et met à jour la grille de jeu en conséquence
