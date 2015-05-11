@@ -6,7 +6,7 @@ public class Graphique implements Runnable {
 
 	public void run() {
         // Creation d'une fenetre
-        JFrame frame = new JFrame("Blue Waffle");
+        JFrame frame = new JFrame("Waffle crunsh saga");
         
         //recuperation de la taille de la fenetre
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
