@@ -1,4 +1,6 @@
 Lundi 11/05
 * Conception de l'architecture du projet
 * Création et configuration du git
-* Premiers essais d'affichage graphique
+* Création et développement de l'interface graphique
+* Création de la classe Jeu, gérant le déroulement d'un partie
+* Création et développement de la classe Plateau, gérant la grille de jeu
