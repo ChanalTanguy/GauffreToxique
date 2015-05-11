@@ -16,8 +16,8 @@ public class IADifficile implements InterfaceEntree {
 		double chance = Integer.MIN_VALUE;
 		boolean [][] g = gauffre.getTab();
 		Point p; double x;
-		for (int i = 0; i < gauffre.getHeigth(); i++) {
-			for (int j = 0; j < gauffre.getLength(); j++) {
+		for (int i = 0; i < gauffre.getHeight(); i++) {
+			for (int j = 0; j < gauffre.getWidth(); j++) {
 				if (g[i][j] && (i != 1 || j != 1)) {
 					p = new Point(i,j);
 					x = probaGagne(p, Constantes.HEURISTIQUE, this.gauffre);
@@ -52,8 +52,8 @@ public class IADifficile implements InterfaceEntree {
 		boolean[][] g = gauf.getTab();
 		double x = 0;
 		
-		for (int i = 0; i < gauffre.getHeigth(); i++) {
-			for (int j = 0; j < gauffre.getLength(); j++) {
+		for (int i = 0; i < gauffre.getHeight(); i++) {
+			for (int j = 0; j < gauffre.getWidth(); j++) {
 				if (g[i][j] && (i != 1 || j != 1)) {
 					x = max(x,(1.0-probaGagne(new Point(i,j),heuristique-1,gauf)));
 				}
