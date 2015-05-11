@@ -27,10 +27,10 @@ public class Dessin extends JComponent {
     }
     
     //Accesseur de X
-    public int getHeight() { return gauffre.getHeigth(); }
+    public int getHeight() { return gauffre.getHeight(); }
     
     //Accesseur de Y
-    public int getWidth() { return gauffre.getLength(); }
+    public int getWidth() { return gauffre.getWidth(); }
 
     public void paintComponent(Graphics g)
     {
@@ -52,9 +52,9 @@ public class Dessin extends JComponent {
 			poison = ImageIO.read(new File("gauffre_e.png"));		
 			
 			//Boucle d'affichage en fonction du tableau de booleen
-			for(int i = 0; i < gauffre.getLength(); i++)
+			for(int i = 0; i < gauffre.getHeight(); i++)
 		    {
-		    	for(int j = 0; j < gauffre.getHeigth(); j++)
+		    	for(int j = 0; j < gauffre.getWidth(); j++)
 		    	{
 		    		if ( gauffre.verifClick(new Point(i, j)) )
 		    		{

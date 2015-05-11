@@ -1,4 +1,6 @@
-import java.awt.event.*;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 class EcouteTerrain implements MouseListener {
 	Jeu moteur;
@@ -16,17 +18,12 @@ class EcouteTerrain implements MouseListener {
 		
 		int x = e.getX()/Constantes.tailleCase;
 		int y = e.getY()/Constantes.tailleCase;
+		
+		System.out.println("x : " + x + " et y = " + y);
     	
     	//On met à faux toutes les cases en dessous de celle cliquée
-    	for(int i = x; i<aire.tab.length; i++)
-    	{
-    		for(int j = y; j<aire.tab[0].length; j++)
-    		{
-    			aire.tab[i][j] = false;
-    		}
-    	}
-    	    	
-    	aire.repaint();
+		moteur.getGauffre().updatePlateau(new Point(x, y));
+    	aireGraphique.repaint();
     }
 
     // Il faut aussi une implementation pour les autres methodes de l'interface

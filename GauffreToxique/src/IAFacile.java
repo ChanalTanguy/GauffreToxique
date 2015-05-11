@@ -11,7 +11,7 @@ public class IAFacile implements InterfaceEntree {
 	
 	public Point jouer() {
 		Random r = new Random();
-		return new Point(r.nextInt(gauffre.getLength()),r.nextInt(gauffre.getHeigth())); 
+		return new Point(r.nextInt(gauffre.getWidth()),r.nextInt(gauffre.getHeight())); 
 	}
 
 }

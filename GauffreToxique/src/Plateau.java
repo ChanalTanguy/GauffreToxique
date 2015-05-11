@@ -18,11 +18,11 @@ public class Plateau {
 		return gauffre;
 	}
 	
-	int getLength() {
+	int getWidth() {
 		return gauffre[0].length; // /!\ Possible inversion
 	}
 	
-	int getHeigth() {
+	int getHeight() {
 		return gauffre.length; // /!\ Possible inversion
 	}
 	
@@ -53,10 +53,10 @@ public class Plateau {
 	}
 	
 	protected Plateau clone() {
-		Plateau p = new Plateau(getHeigth(),getLength());
+		Plateau p = new Plateau(getHeight(), getWidth());
 		p.updateMessage(message);
-		for (int i = 0; i < getHeigth(); i++){
-			for (int j = 0; j < getLength(); j++){
+		for (int i = 0; i < getHeight(); i++){
+			for (int j = 0; j < getWidth(); j++){
 				p.setGauffreAt(i, j, gauffre[i][j]);
 			}
 		}

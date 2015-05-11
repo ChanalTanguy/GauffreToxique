@@ -25,7 +25,7 @@ public class IAMoyenne implements InterfaceEntree {
 		do { 
 			i++;
 			do {
-				p = new Point(r.nextInt(gauffre.getLength()),r.nextInt(gauffre.getHeigth())); 
+				p = new Point(r.nextInt(gauffre.getWidth()),r.nextInt(gauffre.getHeight())); 
 			} while (!g[p.x][p.y]);
 		} while (i < 5 && !coupPerdant(p));
 		
