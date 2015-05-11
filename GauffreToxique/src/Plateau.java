@@ -1,15 +1,15 @@
 import java.awt.Point;
 
 public class Plateau {
-	boolean gauffre[][];
-	String message;
+	private boolean gauffre[][];
+	private String message;
 	
 	public Plateau (int hauteur, int largeur){
 		message = "";
 		gauffre = new boolean[hauteur][largeur];
 		for (int i = 0; i < hauteur; i++){
 			for (int j = 0; j < largeur; j++){
-				gauffre[i][j] = false;
+				gauffre[i][j] = true;
 			}
 		}
 	}
@@ -26,6 +26,10 @@ public class Plateau {
 		return gauffre.length; // /!\ Possible inversion
 	}
 	
+	private void setGauffreAt(int x, int y, boolean b) {
+		gauffre[x][y] = b;
+	}
+	
 	boolean verifClick (Point position){
 		int ligne = position.x, colonne = position.y;
 		return gauffre[ligne][colonne];
@@ -35,7 +39,7 @@ public class Plateau {
 		int ligne = position.x, colonne = position.y;
 		for (int i = ligne; i < gauffre.length; i++){
 			for (int j = colonne; j < gauffre[0].length; j++){
-				gauffre[i][j] = true;
+				gauffre[i][j] = false;
 			}
 		}
 	}
@@ -46,6 +50,18 @@ public class Plateau {
 	
 	boolean verifCaseEmpoisonnee (Point position){
 		return (position.x == 0 && position.y == 0);
+	}
+	
+	protected Plateau clone() {
+		Plateau p = new Plateau(getHeigth(),getLength());
+		p.updateMessage(message);
+		for (int i = 0; i < getHeigth(); i++){
+			for (int j = 0; j < getLength(); j++){
+				p.setGauffreAt(i, j, gauffre[i][j]);
+			}
+		}
+		return p;
+		
 	}
 	
 }
