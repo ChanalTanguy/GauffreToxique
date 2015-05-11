@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
 
@@ -10,47 +11,26 @@ import javax.swing.JComponent;
 
 
 public class Dessin extends JComponent {
-    boolean tab[][];
-    int xT, yT;
+    Plateau gauffre;
+    String message;
     
     //Constructeur de base
     public Dessin() 
     {   	
-    	//Initialisation de la taille du tableau de booleen  	
-    	xT = 10;
-    	yT = 10;
     	
-        tab = new boolean[10][10];
-        for(int i = 0; i<10;i++)
-        {
-        	for(int j = 0;j<10;j++)
-        	{
-        		tab[i][j] = true;
-        	}
-        }
     }
     
     //Constructeur avec choix des tailles
-    public Dessin(int x, int y)
+    public Dessin(Plateau referenceGauffre)
     {
-    	xT = x;
-    	yT = y;
-    	
-    	tab = new boolean[x][y];
-        for(int i = 0; i<x;i++)
-        {
-        	for(int j = 0;j<y;j++)
-        	{
-        		tab[i][j] = true;
-        	}
-        }
+    	gauffre = referenceGauffre;
     }
     
     //Accesseur de X
-    public int sizeX() { return xT; }
+    public int getHeight() { return gauffre.getHeigth(); }
     
     //Accesseur de Y
-    public int sizeY() { return yT; }
+    public int getWidth() { return gauffre.getLength(); }
 
     public void paintComponent(Graphics g)
     {
@@ -72,11 +52,11 @@ public class Dessin extends JComponent {
 			poison = ImageIO.read(new File("gauffre_e.png"));		
 			
 			//Boucle d'affichage en fonction du tableau de booleen
-			for(int i = 0; i <tab.length;i++)
+			for(int i = 0; i < gauffre.getLength(); i++)
 		    {
-		    	for(int j = 0; j<tab[0].length;j++)
+		    	for(int j = 0; j < gauffre.getHeigth(); j++)
 		    	{
-		    		if(tab[i][j])
+		    		if ( gauffre.verifClick(new Point(i, j)) )
 		    		{
 		    			//On peut faire un draw Image ici meme
 						drawable.drawImage(img, i*50, j*50, 50, 50, Color.black, this);

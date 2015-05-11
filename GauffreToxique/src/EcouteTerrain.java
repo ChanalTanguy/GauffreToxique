@@ -1,22 +1,21 @@
 import java.awt.event.*;
 
 class EcouteTerrain implements MouseListener {
-    Dessin aire;
-    
-    // Ecouteur de souris a besoin de connaitre l'aire de dessin car elle doit
-    // changer le message que celle ci affiche
-    public EcouteTerrain(Dessin a) {
-        aire = a;
-    }
+	Jeu moteur;
+	Dessin aireGraphique;
+	
+	// Ecouteur de souris a besoin de connaitre l'aire de dessin car elle doit
+	// changer le message que celle ci affiche
+	public EcouteTerrain(Jeu referenceMoteur, Dessin referenceGraphique) {
+		moteur = referenceMoteur;
+		aireGraphique = referenceGraphique;
+	}
 
-    // Lors d'une pression de bouton, on change de message
-    public void mousePressed(MouseEvent e) {
-    	
-    	int x = e.getX()/50;
-    	int y = e.getY()/50;
-    	
-    	//Test
-    	//System.out.println("X : " + x + " Y : " + y );
+	// Lors d'une pression de bouton, on change de message
+	public void mousePressed(MouseEvent e) {
+		
+		int x = e.getX()/Constantes.tailleCase;
+		int y = e.getY()/Constantes.tailleCase;
     	
     	//On met à faux toutes les cases en dessous de celle cliquée
     	for(int i = x; i<aire.tab.length; i++)

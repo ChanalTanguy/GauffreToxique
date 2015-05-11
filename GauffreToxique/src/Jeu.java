@@ -8,15 +8,15 @@ public class Jeu {
 	Stack<Plateau> plateauPrec;
 	Stack<Plateau> plateauSuiv;
 	
-	Plateau getGauffre (){
-		return gauffre;
-	}
-	
-	void init (int largeur, int hauteur){
+	public Jeu (int largeur, int hauteur){
 		gauffre = new Plateau(largeur, hauteur);
 		joueur = 0;
 		plateauPrec = new Stack<Plateau>();
 		plateauSuiv = new Stack<Plateau>();
+	}
+	
+	Plateau getGauffre (){
+		return gauffre;
 	}
 	
 	void boucle (){
