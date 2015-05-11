@@ -6,8 +6,8 @@ public class Graphique implements Runnable {
 
 	public void run() {
         // Creation d'une fenetre
-        JFrame frame = new JFrame("Blue waffle");
-         
+        JFrame frame = new JFrame("Blue Waffle");
+        
         // Creation du composant de dessin et ajout de l'objet de traitement
         // des evenements provenant de la souris
         Dessin mon_dessin = new Dessin(5,5);
@@ -25,16 +25,10 @@ public class Graphique implements Runnable {
         
         int tailleBordure = 25;
         
-        //centrage de la fenetres
-        frame.setLocationRelativeTo(null);
-        
 		// On fixe la taille et on demarre
         frame.setSize(x*Constantes.tailleCase, y*Constantes.tailleCase + tailleBordure );
         frame.setResizable(false);
         frame.setVisible(true);
-        
-        //centrage de la fenetre
-        
     }
 
     public static void main(String [] args) {

@@ -14,8 +14,16 @@ public class Plateau {
 		}
 	}
 	
-	public boolean[][] getTab (){
+	boolean[][] getTab() {
 		return gauffre;
+	}
+	
+	int getLength() {
+		return gauffre[0].length; // /!\ Possible inversion
+	}
+	
+	int getHeigth() {
+		return gauffre.length; // /!\ Possible inversion
 	}
 	
 	boolean verifClick (Point position){
