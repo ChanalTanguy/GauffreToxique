@@ -1,4 +1,4 @@
 
 public class main {
-	// Fonctionne par pitié
+	// FONCTIONNE FILS DE PUTE
 }
