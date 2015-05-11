@@ -51,15 +51,17 @@ public class IADifficile implements InterfaceEntree {
 		
 		boolean[][] g = gauf.getTab();
 		double x = 0;
+		int y = 0;
 		
 		for (int i = 0; i < gauffre.getHeight(); i++) {
 			for (int j = 0; j < gauffre.getWidth(); j++) {
 				if (g[i][j] && (i != 1 || j != 1)) {
-					x = max(x,(1.0-probaGagne(new Point(i,j),heuristique-1,gauf)));
+					x += 1.0-probaGagne(new Point(i,j),heuristique-1,gauf);
+					y++;
 				}
 			}
 		}
-		return x;
+		return (x/y);
 	}
 	
 	private boolean coupPerdant(Point p) {
