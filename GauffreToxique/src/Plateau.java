@@ -2,8 +2,10 @@ import java.awt.Point;
 
 public class Plateau {
 	boolean gauffre[][];
+	String message;
 	
 	public Plateau (int hauteur, int largeur){
+		message = "";
 		gauffre = new boolean[hauteur][largeur];
 		for (int i = 0; i < hauteur; i++){
 			for (int j = 0; j < largeur; j++){
@@ -25,4 +27,13 @@ public class Plateau {
 			}
 		}
 	}
+	
+	void updateMessage (String newMessage){
+		message = newMessage;
+	}
+	
+	boolean verifCaseEmpoisonnee (Point position){
+		return (position.x == 0 && position.y == 0);
+	}
+	
 }
