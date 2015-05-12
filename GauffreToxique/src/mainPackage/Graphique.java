@@ -12,6 +12,7 @@ public class Graphique {
         Dessin d = new Dessin(gaufre);
 
         d.addMouseListener(new EcouteTerrain(d, gaufre));
+        frame.addKeyListener(new Konami(d,gaufre));
         
         frame.add(d);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +30,7 @@ public class Graphique {
         
         //Test mouse
         d.addMouseListener(new EcouteTerrain(d, gaufre));
+        frame.addKeyListener(new Konami(d,gaufre));
         
         frame.add(d);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +50,7 @@ public class Graphique {
 	        
 	     //Test mouse
 	     d.addMouseListener(new EcouteTerrain(d, gaufre));
+	     frame.addKeyListener(new Konami(d,gaufre));
 	        
 	     frame.add(d);
 	     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
