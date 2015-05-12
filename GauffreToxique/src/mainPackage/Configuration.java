@@ -40,7 +40,7 @@ Plateau plat;
 	
 	//creation d'un string pour l'affichage
 	public String toString(){
-		String resultat = joueur_courant + plat.toString();
+		String resultat = "joueur: " + joueur_courant + plat.toString();
 		return null;
 	}
 }
