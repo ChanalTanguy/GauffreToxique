@@ -53,10 +53,10 @@ public class Plateau {
 	}
 	
 	protected Plateau clone() {
-		Plateau p = new Plateau(getHeight(), getWidth());
+		Plateau p = new Plateau(getWidth(), getHeight());
 		p.updateMessage(message);
-		for (int i = 0; i < getHeight(); i++){
-			for (int j = 0; j < getWidth(); j++){
+		for (int i = 0; i < getWidth(); i++){
+			for (int j = 0; j < getHeight(); j++){
 				p.setgaufreAt(i, j, gaufre[i][j]);
 			}
 		}
