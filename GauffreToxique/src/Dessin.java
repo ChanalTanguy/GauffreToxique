@@ -13,49 +13,24 @@ import javax.swing.JComponent;
 
 
 public class Dessin extends JComponent {
-    boolean tab[][];
-    Plateau gaufre;
-    String mess;
-    boolean the_game = true;
-    int tour = 0;  
+    
+	boolean the_game = true; //Indicateur de defaite
+	String mess; //Message en cours
+	 
+    Plateau gaufre; //Plateau de jeu
+      
+    int tour = 1;  //Tout actif
     int xT, yT;
+        
     Random r = new Random();
-    int player = (r.nextInt(2))+1;
+    int player = (r.nextInt(2))+1; //Choix du joueur qui commence
     
-    //Constructeur de base
-    public Dessin() 
-    {   	
-    	xT = 10;
-    	yT = 10;
-    	
-        tab = new boolean[10][10];     
-        initTab(tab, 10, 10);   
-        mess = "To the player " + player ;
-        
-    }
+    boolean intel = false; //Il y a une IA
+    boolean intel2 = false; //Il y a deux IA
     
-    //Constructeur avec choix des tailles
-    public Dessin(int x, int y)
-    {
-    	xT = x;
-    	yT = y;
-    	
-    	tab = new boolean[x][y];
-    	initTab(tab, x, y);  
-        mess = "To the player " + player ;
-    }
-    
-    //Constructeur avec tableau de booleen
-    public Dessin(boolean[][]t)
-    {
-    	xT = t.length;
-    	yT = t[0].length;
-    	
-    	tab = t;
-        
-        mess = "To the player " + player ;
-    }
-    
+    InterfaceEntree myIA;
+    InterfaceEntree myIA2;
+
     //Constructeur avec plateau
     public Dessin(Plateau p)
     {
@@ -63,42 +38,52 @@ public class Dessin extends JComponent {
     	mess = "To the player " + player ;
     }
 
-    //Initialisation à vrai de toutes les cases
-    public void initTab(boolean[][] tab, int x, int y)
+    //Constructeur avec plateau + 1 IA
+    public Dessin(Plateau p, InterfaceEntree IA)
     {
-        for(int i = 0; i<x;i++)
-        {
-        	for(int j = 0;j<y;j++)
-        	{
-        		tab[i][j] = true;
-        	}
-        }
+    	gaufre = p;
+    	mess = "To the player " + player ;
+    	intel = true;
+    	myIA = IA;
+    }
+
+    //Constructeur avec plateau + 1 IA
+    public Dessin(Plateau p, InterfaceEntree IA1, InterfaceEntree IA2)
+    {
+    	gaufre = p;
+    	mess = "To the player " + player ;
+    	intel = true;
+    	intel2 = true;
+    	myIA = IA1;
+    	myIA2 = IA2;
+    }
+
+    //Nettoyage de l'écran
+    public void cleanPanel(Graphics2D drawable)
+    { 
+        int width = getSize().width;
+        int height = getSize().height;
+        
+	    drawable.setPaint(Color.white);
+	    drawable.fillRect(0, 0, width, height);
     }
     
-    //Accesseur de X
-    public int sizeX() { return xT; }
-    
-    //Accesseur de Y
-    public int sizeY() { return yT; }
-
     //Affichage
     public void paintComponent(Graphics g)
     {
         Graphics2D drawable = (Graphics2D) g;
 
-        int width = getSize().width;
-        int height = getSize().height;
-        
-        //Clean du terrain 
-	    drawable.setPaint(Color.white);
-	    drawable.fillRect(0, 0, width, height);
-	    
+        //Nettoyage du plateau
+        cleanPanel(drawable);
+
 	    //Images de base
 	    Image img, poison, fond, vide;
+	    
 	    if(the_game)
 	    {
 			try {
 				
+				//Chargement des images
 				img = ImageIO.read(new File("gauffre.png"));
 				poison = ImageIO.read(new File("gauffre_e.png"));
 				fond = ImageIO.read(new File("texture.png"));
@@ -106,30 +91,13 @@ public class Dessin extends JComponent {
 				
 				drawable.drawImage(fond, null, this);
 				
-				//Boucle d'affichage en fonction du tableau de booleen
-				/*
-				for(int i = 0; i <gaufre.getWidth();i++)
-			    {
-			    	for(int j = 0; j<tab[0].length;j++)
-			    	{
-			    		if(tab[i][j])
-			    		{
-			    			//On peut faire un draw Image ici meme
-							drawable.drawImage(img, (i+1)*50, (j+1)*50, 50, 50, Color.black, this);
-			    		}
-			    		else
-			    		{
-			    			drawable.drawImage(vide, (i+1)*50, (j+1)*50, 50, 50, Color.black, this);
-			    		}
-			    	}
-			    }*/
+				//Affichage de la gauffre
 				for(int i = 0; i <gaufre.getWidth();i++)
 			    {
 			    	for(int j = 0; j<gaufre.getHeight();j++)
 			    	{
 			    		if(gaufre.verifClick(new Point(i,j)))
 			    		{
-			    			//On peut faire un draw Image ici meme
 							drawable.drawImage(img, (i+1)*50, (j+1)*50, 50, 50, Color.black, this);
 			    		}
 			    		else
@@ -139,44 +107,42 @@ public class Dessin extends JComponent {
 			    	}
 			    }
 				
-				
-				
 				//Dans tous les cas, le poison reste
 				drawable.drawImage(poison, 50, 50, 50, 50, Color.black, this);
 		
 			} 
 			catch (IOException e) { e.printStackTrace();}
 	    
-		
+			int t = Constantes.tailleCase;
+			
 		    //Affichage du joueur actif
 	    	drawable.setColor(Color.white);
-	    	drawable.fillRect(50+(gaufre.getWidth()*50)+25, 62, 100, 38);
+	    	drawable.fillRect(t+(gaufre.getWidth()*t)+25, 62, 2*t, 38);
 	    	drawable.setColor(Color.RED);
-	    	drawable.drawRect(50+(gaufre.getWidth()*50)+25, 62, 100, 38);
+	    	drawable.drawRect(t+(gaufre.getWidth()*t)+25, 62, 2*t, 38);
+	    	
+	    	//Type de font
 	    	drawable.setPaint(Color.black);
 	    	Font font = new Font("Helvetica", Font.BOLD, 11);
 	    	drawable.setFont(font);
-	    	drawable.drawString(mess,50+(gaufre.getWidth()*50)+27 , 86);
+	    	drawable.drawString(mess,50+(gaufre.getWidth()*Constantes.tailleCase)+27 , 86);
 		    
 		    //Affichage du numéro du tour
-	    	
 	    	drawable.setColor(Color.white);
-	    	drawable.fillRect(50+(gaufre.getWidth()*50)+25, 112, 100, 38);
+	    	drawable.fillRect(t+(gaufre.getWidth()*t)+25, 112, 2*t, 38);
 	    	drawable.setColor(Color.RED);
-	    	drawable.drawRect(50+(gaufre.getWidth()*50)+25, 112, 100, 38);
+	    	drawable.drawRect(t+(gaufre.getWidth()*t)+25, 112, 2*t, 38);
 	    	drawable.setPaint(Color.black);
 	    	drawable.setFont(font);
-	    	drawable.drawString("Tour " + tour,50+(gaufre.getWidth()*50)+38 , 136);
+	    	drawable.drawString("Tour " + tour,t+(gaufre.getWidth()*t)+38 , 136);
 	    	
-
 	    }
-	    else
+	    else //Partie finie
 	    {
 			Font font = new Font("Courier", Font.BOLD, 30);
 			drawable.setFont(font);
 			drawable.setPaint(Color.red);
 		    drawable.drawString(mess+" en "+(tour+1)+" tour(s).", getWidth()/16, getHeight()/2);
-	    }
-	    
+	    }    
     }
 }
