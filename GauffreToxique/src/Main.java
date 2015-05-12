@@ -23,6 +23,8 @@ public class Main implements Runnable {
 		//Pour 2 IA
 		Graphique g = new Graphique(plateau, new IAMoyenne(plateau), new IAFacile(plateau));
     }
+	
+	
 
     public static void main(String [] args) {
         SwingUtilities.invokeLater(new Main());

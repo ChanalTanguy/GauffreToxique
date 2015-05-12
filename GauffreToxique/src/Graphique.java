@@ -6,6 +6,7 @@ public class Graphique {
 	JFrame frame = new JFrame("Blue Waffle");
 	JMenuBar bar = Menu.newMenu();
 	
+	//Cas deux joueurs humains
 	public Graphique(Plateau gaufre) {
         Dessin d = new Dessin(gaufre);
 
@@ -21,6 +22,7 @@ public class Graphique {
         frame.setVisible(true);
     }
 	
+	//Cas 1 humain + 1 IA
 	public Graphique(Plateau gaufre, InterfaceEntree IA) {
         Dessin d = new Dessin(gaufre, IA);
         
@@ -37,6 +39,7 @@ public class Graphique {
         frame.setVisible(true);
     }
 
+	//Cas 2 IA
 	public Graphique(Plateau gaufre, InterfaceEntree IA1, InterfaceEntree IA2)
 	{
 		 
