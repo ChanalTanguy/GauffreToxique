@@ -34,7 +34,7 @@ public class ActionNewGame implements ActionListener {
 		
 		System.out.println("La grille mesure "+width+" carreaux sur "+height+" !");
 		
-		Plateau plateau = new Plateau(5,5);
+		Plateau plateau = new Plateau(width,height);
 		
 		if (dif1 == "Humain" && dif2 == "Humain"){
 			new Graphique(plateau);
