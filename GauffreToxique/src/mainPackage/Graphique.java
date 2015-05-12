@@ -1,3 +1,4 @@
+package mainPackage;
 import javax.swing.*;
 
 import menuPackage.Menu;

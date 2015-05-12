@@ -1,3 +1,4 @@
+package mainPackage;
 import javax.sound.midi.Sequence;
 
 public class Configuration {

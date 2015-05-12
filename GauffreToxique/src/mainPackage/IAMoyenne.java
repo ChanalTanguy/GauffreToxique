@@ -1,3 +1,4 @@
+package mainPackage;
 import java.awt.Point;
 import java.util.Random;
 
