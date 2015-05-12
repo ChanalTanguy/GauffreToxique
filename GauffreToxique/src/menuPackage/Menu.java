@@ -1,9 +1,11 @@
 package menuPackage;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class Menu {
 
@@ -25,9 +27,9 @@ public class Menu {
 		ActionLoad action_load = new ActionLoad();
 		load.addActionListener(action_load);
 		file.add(load);
-		
+
 		JMenu edit = new JMenu("Édition");
-		
+
 		JMenuItem undo = new JMenuItem("Annuler");
 		ActionUndo actionUndo = new ActionUndo();
 		undo.addActionListener(actionUndo);
@@ -51,8 +53,21 @@ public class Menu {
 
 		bar.add(file);
 		bar.add(edit);
-		
+
 		return bar;
+	}
+
+	public static JPanel newUndoRedo(){
+		JButton undo = new JButton("Annuler");
+		JButton redo = new JButton("Rétablir");
+		JPanel control = new JPanel();
+		ActionUndo actionUndo = new ActionUndo();
+		undo.addActionListener(actionUndo);
+		ActionRedo actionRedo = new ActionRedo();
+		redo.addActionListener(actionRedo);
+		control.add(undo);
+		control.add(redo);
+		return control;
 	}
 
 }
