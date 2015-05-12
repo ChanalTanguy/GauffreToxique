@@ -142,7 +142,7 @@ public class Dessin extends JComponent {
 			Font font = new Font("Courier", Font.BOLD, 30);
 			drawable.setFont(font);
 			drawable.setPaint(Color.red);
-		    drawable.drawString(mess+" en "+(tour+1)+" tour(s).", getWidth()/16, getHeight()/2);
+		    drawable.drawString(mess+" en "+(tour)+" tour(s).", getWidth()/16, getHeight()/2);
 	    }    
     }
 }
