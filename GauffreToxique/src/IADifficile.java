@@ -67,10 +67,4 @@ public class IADifficile implements InterfaceEntree {
 	private boolean coupPerdant(Point p) {
 		return (p.x == 0 && p.y == 1 || p.x == 1 && p.y == 0);
 	}
-	
-	private double max(double f1, double f2) {
-		if (f1 > f2)
-			return f1;
-		return f2;
-	}
 }
