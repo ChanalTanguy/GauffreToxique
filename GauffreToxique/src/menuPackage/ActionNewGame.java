@@ -13,6 +13,7 @@ public class ActionNewGame implements ActionListener {
 	ActionReset a;
 	JFrame window;
 	JFrame currentWindow;
+	int width, height;
 	
 	public ActionNewGame(JFrame window, ActionReset a, JFrame currentWindow){
 		this.a = a;
@@ -20,14 +21,18 @@ public class ActionNewGame implements ActionListener {
 		this.currentWindow = currentWindow;
 	}
 	
-	public ActionNewGame(String selected1, String selected2){
+	/*public ActionNewGame(String selected1, String selected2){
 		dif1 = selected1;
 		dif2 = selected2;
-	}
+	}*/
 	
 	public void actionPerformed(ActionEvent e) {
 		dif1 = a.selected1;
 		dif2 = a.selected2;
+		width = Integer.parseInt(a.width.getText());
+		height = Integer.parseInt(a.height.getText());
+		
+		System.out.println("La grille mesure "+width+" carreaux sur "+height+" !");
 		
 		Plateau plateau = new Plateau(5,5);
 		

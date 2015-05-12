@@ -1,6 +1,7 @@
 package menuPackage;
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 // Action effectuée lors du clic sur "Nouvelle partie"
@@ -8,6 +9,8 @@ import javax.swing.*;
 public class ActionReset implements ActionListener  {
 	String selected1 = "Humain";
 	String selected2 = "Humain";
+	JTextField width;
+	JTextField height;
 	JFrame currentWindow;
 	
 	public ActionReset(JFrame f) {
@@ -23,11 +26,12 @@ public class ActionReset implements ActionListener  {
 	    
 		ActionNiv1 actionNiv1 = new ActionNiv1(this);
 		ActionNiv2 actionNiv2 = new ActionNiv2(this);
+		JPanel size = sizePanel();
 		JPanel j1 = nivPanel("Joueur 1", selected1, actionNiv1);
 		JPanel j2 = nivPanel("Joueur 2", selected2, actionNiv2);
 		
 	    JPanel newGame = new JPanel();
-	    newGame.add(j1); newGame.add(j2);
+	    newGame.add(size); newGame.add(j1); newGame.add(j2);
 	    
 	    return newGame;
 	}
@@ -36,7 +40,7 @@ public class ActionReset implements ActionListener  {
 		JFrame window = new JFrame();
 		JPanel niv = newGameChoice();
 		window.setTitle("Nouvelle partie");
-		window.setSize(475, 200);
+		window.setSize(475, 275);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);  
 		window.getContentPane().add(niv);
@@ -78,6 +82,20 @@ public class ActionReset implements ActionListener  {
 	    niv.add(medium);
 	    niv.add(hard);
 	    return niv;
+	}
+	
+	private JPanel sizePanel(){
+		JPanel size = new JPanel();
+		size.setBorder(BorderFactory.createTitledBorder("Grille de jeu"));
+		size.setPreferredSize(new Dimension(440, 60));
+		JLabel labelW = new JLabel("Largeur : ");
+		JLabel labelH = new JLabel("Hauteur : ");
+		width = new JTextField("6");
+		width.setPreferredSize(new Dimension(30, 25));
+		height = new JTextField("10");
+		height.setPreferredSize(new Dimension(30, 25));
+		size.add(labelW); size.add(width); size.add(labelH); size.add(height); 
+		return size;
 	}
 	
 	private void selectButton(String select, JRadioButton human, JRadioButton easy, JRadioButton medium, JRadioButton hard){
