@@ -1,18 +1,19 @@
 package menuPackage;
 
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class Menu {
 
-	public static JMenuBar newMenu(){
+	public static JMenuBar newMenu(JFrame frame){
 		JMenuBar bar = new JMenuBar();
 
 		JMenu file = new JMenu("Fichier");
 
 		JMenuItem reset = new JMenuItem("Nouvelle partie");
-		ActionReset action_reset = new ActionReset();
+		ActionReset action_reset = new ActionReset(frame);
 		reset.addActionListener(action_reset);
 		file.add(reset);
 		file.addSeparator();

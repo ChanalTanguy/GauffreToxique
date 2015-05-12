@@ -5,7 +5,7 @@ import menuPackage.Menu;
 
 public class Graphique {
 	JFrame frame = new JFrame("Blue Waffle");
-	JMenuBar bar = Menu.newMenu();
+	JMenuBar bar = Menu.newMenu(frame);
 	
 	//Cas deux joueurs humains
 	public Graphique(Plateau gaufre) {

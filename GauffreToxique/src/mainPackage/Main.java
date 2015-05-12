@@ -10,7 +10,7 @@ public class Main implements Runnable {
 		Plateau plateau = new Plateau(5,5);
 		
 		//Pour deux joueurs simplement
-		//Graphique g = new Graphique(plateau);
+		Graphique g = new Graphique(plateau);
 		
 		//Pour 1 joueur + une IA facile
 		//Graphique g = new Graphique(plateau, new IAFacile(plateau));
@@ -22,7 +22,7 @@ public class Main implements Runnable {
 		//Graphique g = new Graphique(plateau, new IADifficile(plateau));
 		
 		//Pour 2 IA
-		Graphique g = new Graphique(plateau, new IAMoyenne(plateau), new IAFacile(plateau));
+		//Graphique g = new Graphique(plateau, new IAMoyenne(plateau), new IAFacile(plateau));
     }
 	
 	

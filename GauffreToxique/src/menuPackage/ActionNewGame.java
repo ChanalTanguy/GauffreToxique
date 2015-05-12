@@ -1,6 +1,6 @@
 package menuPackage;
 
-// Action effectuée lors de l'appui sur le bouton "OK" du menu "Nouvelle partie"
+import mainPackage.*;
 
 import java.awt.event.*;
 
@@ -12,10 +12,12 @@ public class ActionNewGame implements ActionListener {
 	String dif1, dif2;
 	ActionReset a;
 	JFrame window;
+	JFrame currentWindow;
 	
-	public ActionNewGame(JFrame window, ActionReset a){
+	public ActionNewGame(JFrame window, ActionReset a, JFrame currentWindow){
 		this.a = a;
 		this.window = window;
+		this.currentWindow = currentWindow;
 	}
 	
 	public ActionNewGame(String selected1, String selected2){
@@ -30,14 +32,37 @@ public class ActionNewGame implements ActionListener {
 		Plateau plateau = new Plateau(5,5);
 		
 		if (dif1 == "Humain" && dif2 == "Humain"){
-
-			Graphique g = new Graphique(plateau);
-		else if (dif1 == "Humain") {
-			
-		} else if (dif2 == "Humain") {
-			
+			new Graphique(plateau);
+		}
+		else if (dif1.equals("Humain")) {
+			uneIA(dif2,plateau);
+		} else if (dif2.equals("Humain")) {
+			uneIA(dif1,plateau);
+		} else {
+			switch (dif1+" "+dif2) {
+			case "Facile Facile" : new Graphique(plateau, new IAFacile(plateau), new IAFacile(plateau)); break;
+			case "Facile Moyen" : new Graphique(plateau, new IAFacile(plateau), new IAMoyenne(plateau)); break;
+			case "Facile Difficile" : new Graphique(plateau, new IAFacile(plateau), new IADifficile(plateau)); break;
+			case "Moyen Facile" : new Graphique(plateau, new IAMoyenne(plateau), new IAFacile(plateau)); break;
+			case "Moyen Moyen" : new Graphique(plateau, new IAMoyenne(plateau), new IAMoyenne(plateau)); break;
+			case "Moyen Difficile" : new Graphique(plateau, new IAMoyenne(plateau), new IADifficile(plateau)); break;
+			case "Difficile Facile" : new Graphique(plateau, new IADifficile(plateau), new IAFacile(plateau)); break;
+			case "Difficile Moyen" : new Graphique(plateau, new IADifficile(plateau), new IAMoyenne(plateau)); break;
+			case "Difficile Difficile" : new Graphique(plateau, new IADifficile(plateau), new IADifficile(plateau)); break;
+			default:
+			}
 		}
 		
 		this.window.setVisible(false);
+		currentWindow.setVisible(false);
+	}
+	
+	private void uneIA(String s, Plateau p) {
+		switch (s) {
+		case "Facile" : new Graphique(p, new IAFacile(p)); break;
+		case "Moyen" : new Graphique(p, new IAMoyenne(p)); break;
+		case "Difficile" : new Graphique(p, new IADifficile(p)); break;
+		default:
+		}
 	}
 }

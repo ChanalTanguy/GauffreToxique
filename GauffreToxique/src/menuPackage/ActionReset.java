@@ -8,6 +8,11 @@ import javax.swing.*;
 public class ActionReset implements ActionListener  {
 	String selected1 = "Humain";
 	String selected2 = "Humain";
+	JFrame currentWindow;
+	
+	public ActionReset(JFrame f) {
+		currentWindow = f;
+	}
 	
 	public void actionPerformed(ActionEvent e) {
 		JFrame window = newGameWindow();
@@ -38,7 +43,7 @@ public class ActionReset implements ActionListener  {
 		
 		JButton okButton = new JButton("OK");
 		JButton cancelButton = new JButton("Cancel");
-		ActionNewGame actionOK = new ActionNewGame(window, this);
+		ActionNewGame actionOK = new ActionNewGame(window, this, currentWindow);
 		okButton.addActionListener(actionOK);
 		ActionCancel actionCancel = new ActionCancel(window, this);
 		cancelButton.addActionListener(actionCancel);
