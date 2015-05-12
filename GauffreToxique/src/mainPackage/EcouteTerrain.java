@@ -20,7 +20,7 @@ class EcouteTerrain implements MouseListener {
     	{
 	    	if(!aire.intel2) //Dans le cas où il y a deux IA
 	    	{
-	    		if(aire.player == 1 && aire.intel) //Dans le cas d'une IA et tour du joueur 1
+	    		if((aire.player == 1 && aire.intel) || !aire.intel) //Dans le cas d'une IA et tour du joueur 1
 	        	{
 	    	    	int x = (e.getX()/50)-1;
 	    	    	int y = (e.getY()/50)-1;
