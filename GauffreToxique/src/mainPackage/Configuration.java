@@ -7,14 +7,14 @@ Plateau plat;
 
 	//constructeur d'une configuration vide
 	public Configuration(){
-		Plateau p = new Plateau(0,0);
+		plat = new Plateau(0,0);
 		joueur_courant = 0;
-		plat=p.clone();
 	}
 
 	//constructeur d'une configuration
 	public Configuration(int joueur, Plateau p){
 		joueur_courant = joueur;
+		plat= new Plateau(p.getHeight(), p.getWidth());
 		plat=p.clone();
 	}
 
@@ -40,7 +40,7 @@ Plateau plat;
 	
 	//creation d'un string pour l'affichage
 	public String toString(){
-		String resultat = "joueur: " + joueur_courant + plat.toString();
-		return null;
+		String resultat = "joueur: " + joueur_courant + "\n" + plat.toString();
+		return resultat;
 	}
 }

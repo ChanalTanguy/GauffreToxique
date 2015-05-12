@@ -35,8 +35,9 @@ int taille;
 		String resultat = "";
 		int i;
 		for(i=0;i<taille;i++){
-			resultat=resultat + "tour: " + tour(i);
+			resultat=resultat + "tour: " + tour(i) + "\n";
 			resultat=resultat + tab[i].toString();
+			resultat=resultat + "\n";
 		}
 		return resultat;
 	}
