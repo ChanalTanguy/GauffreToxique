@@ -1,7 +1,10 @@
-import javax.swing.JFrame;
+import javax.swing.*;
+
+import menuPackage.Menu;
 
 public class Graphique {
 	JFrame frame = new JFrame("Blue Waffle");
+	JMenuBar bar = Menu.newMenu();
 	
 	public Graphique(Plateau gaufre) {
         Dessin d = new Dessin(gaufre);
@@ -13,6 +16,7 @@ public class Graphique {
         
         // On fixe la taille et on demarre
         frame.setSize(gaufre.getWidth()*Constantes.tailleCase+200, gaufre.getHeight()*Constantes.tailleCase+25+25+100);
+        frame.setJMenuBar(bar);
         frame.setResizable(false);
         frame.setVisible(true);
     }
@@ -28,6 +32,7 @@ public class Graphique {
         
         // On fixe la taille et on demarre
         frame.setSize(gaufre.getWidth()*Constantes.tailleCase+200, gaufre.getHeight()*Constantes.tailleCase+25+25+100);
+        frame.setJMenuBar(bar);
         frame.setResizable(false);
         frame.setVisible(true);
     }
@@ -45,7 +50,9 @@ public class Graphique {
 	        
 	     // On fixe la taille et on demarre
 	     frame.setSize(gaufre.getWidth()*Constantes.tailleCase+200, gaufre.getHeight()*Constantes.tailleCase+25+25+100);
+	     frame.setJMenuBar(bar);
 	     frame.setResizable(false);
 	     frame.setVisible(true);
 	}
+	
 }
