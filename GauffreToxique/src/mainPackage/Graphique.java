@@ -41,6 +41,7 @@ public class Graphique {
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
+		
 	}
 
 	//Cas 2 IA
