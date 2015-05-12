@@ -1,45 +1,45 @@
 import java.awt.Point;
 
 public class Plateau {
-	private boolean gauffre[][];
+	private boolean gaufre[][];
 	private String message;
 	
 	public Plateau (int hauteur, int largeur){
 		message = "";
-		gauffre = new boolean[hauteur][largeur];
+		gaufre = new boolean[hauteur][largeur];
 		for (int i = 0; i < hauteur; i++){
 			for (int j = 0; j < largeur; j++){
-				gauffre[i][j] = true;
+				gaufre[i][j] = true;
 			}
 		}
 	}
 	
 	boolean[][] getTab() {
-		return gauffre;
+		return gaufre;
 	}
 	
 	int getWidth() {
-		return gauffre[0].length; // /!\ Possible inversion
+		return gaufre.length; // /!\ Possible inversion
 	}
 	
 	int getHeight() {
-		return gauffre.length; // /!\ Possible inversion
+		return gaufre[0].length; // /!\ Possible inversion
 	}
 	
-	private void setGauffreAt(int x, int y, boolean b) {
-		gauffre[x][y] = b;
+	private void setgaufreAt(int x, int y, boolean b) {
+		gaufre[x][y] = b;
 	}
 	
 	boolean verifClick (Point position){
 		int ligne = position.x, colonne = position.y;
-		return gauffre[ligne][colonne];
+		return gaufre[ligne][colonne];
 	}
 	
 	void updatePlateau (Point position){
 		int ligne = position.x, colonne = position.y;
-		for (int i = ligne; i < gauffre.length; i++){
-			for (int j = colonne; j < gauffre[0].length; j++){
-				gauffre[i][j] = false;
+		for (int i = ligne; i < gaufre.length; i++){
+			for (int j = colonne; j < gaufre[0].length; j++){
+				gaufre[i][j] = false;
 			}
 		}
 	}
@@ -57,7 +57,7 @@ public class Plateau {
 		p.updateMessage(message);
 		for (int i = 0; i < getHeight(); i++){
 			for (int j = 0; j < getWidth(); j++){
-				p.setGauffreAt(i, j, gauffre[i][j]);
+				p.setgaufreAt(i, j, gaufre[i][j]);
 			}
 		}
 		return p;
