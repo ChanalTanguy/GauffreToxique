@@ -64,4 +64,15 @@ public class Plateau {
 		
 	}
 	
+	public String toString (){
+		String resultat = new String("");
+		for (int i = 0; i < gaufre.length && gaufre[i][0]; i++){
+			for (int j = 0; j < gaufre[i].length && gaufre[i][j]; j++){
+				resultat = resultat + gaufre[i][j];
+			}
+			resultat = resultat + "\n";
+		}
+		return resultat;
+	}
+	
 }
