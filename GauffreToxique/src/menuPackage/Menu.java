@@ -25,6 +25,17 @@ public class Menu {
 		ActionLoad action_load = new ActionLoad();
 		load.addActionListener(action_load);
 		file.add(load);
+		
+		JMenu edit = new JMenu("Édition");
+		
+		JMenuItem undo = new JMenuItem("Annuler");
+		ActionUndo actionUndo = new ActionUndo();
+		undo.addActionListener(actionUndo);
+		edit.add(undo);
+		JMenuItem redo = new JMenuItem("Rétablir");
+		ActionRedo actionRedo = new ActionRedo();
+		redo.addActionListener(actionRedo);
+		edit.add(redo);
 
 		/*JMenu opt = new JMenu("Options");
         JMenu j1 = new JMenu("Joueur 1");
@@ -39,6 +50,7 @@ public class Menu {
         opt.add(j1); opt.add(j2);*/
 
 		bar.add(file);
+		bar.add(edit);
 		
 		return bar;
 	}
