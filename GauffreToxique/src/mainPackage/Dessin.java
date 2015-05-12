@@ -16,6 +16,7 @@ import javax.swing.JComponent;
 public class Dessin extends JComponent {
     
 	boolean the_game = true; //Indicateur de defaite
+	boolean konami = false;
 	String mess; //Message en cours
 	 
     Plateau gaufre; //Plateau de jeu
@@ -85,10 +86,20 @@ public class Dessin extends JComponent {
 			try {
 				
 				//Chargement des images
-				img = ImageIO.read(new File("gauffre.png"));
-				poison = ImageIO.read(new File("gauffre_e.png"));
-				fond = ImageIO.read(new File("texture.png"));
-				vide = ImageIO.read(new File("texture_m.png"));
+				if(!konami)
+				{
+					img = ImageIO.read(new File("gauffre.png"));
+					poison = ImageIO.read(new File("gauffre_e.png"));
+					fond = ImageIO.read(new File("texture.png"));
+					vide = ImageIO.read(new File("texture_m.png"));
+				}
+				else
+				{
+					img = ImageIO.read(new File("gauffre_konami.png"));
+					poison = ImageIO.read(new File("gauffre_konami_e.png"));
+					fond = ImageIO.read(new File("texture_konami.png"));
+					vide = ImageIO.read(new File("texture_konami_m.png"));
+				}
 				
 				drawable.drawImage(fond, null, this);
 				
@@ -143,7 +154,7 @@ public class Dessin extends JComponent {
 			Font font = new Font("Courier", Font.BOLD, 30);
 			drawable.setFont(font);
 			drawable.setPaint(Color.red);
-		    drawable.drawString(mess+" en "+(tour)+" tour(s).", getWidth()/16, getHeight()/2);
+		    drawable.drawString(mess+" en "+(tour+1)+" tour(s).", getWidth()/16, getHeight()/2);
 	    }    
     }
 }
