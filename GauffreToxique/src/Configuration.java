@@ -12,6 +12,7 @@ public Configuration(){
 	plat=p.clone();
 }
 
+//constructeur d'une configuration
 public Configuration(int joueur, Plateau p){
 	joueur_courant = joueur;
 	plat=p.clone();
