@@ -1,5 +1,7 @@
 package menuPackage;
 
+// Action effectuée lors de l'appui sur le bouton "OK" du menu "Nouvelle partie"
+
 import java.awt.event.*;
 import javax.swing.*;
 

@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+// Action effectuée lors du clic sur "Nouvelle partie"
 
 public class ActionReset implements ActionListener  {
 	String selected1 = "Humain";
