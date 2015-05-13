@@ -1,6 +1,7 @@
 package mainPackage;
 import java.awt.Point;
 import java.awt.event.*;
+import java.util.concurrent.TimeUnit;
 
 class EcouteTerrain implements MouseListener {
     Dessin aire;
@@ -48,6 +49,15 @@ class EcouteTerrain implements MouseListener {
 	        	//Coup de l'IA
 	        	else
 	        	{
+	        		try 
+	        		{
+	        			aire.chargement = true;
+	        			aire.repaint();
+	        			TimeUnit.SECONDS.sleep(1);
+	        			aire.chargement = false;
+	        		}
+	        		
+	        		catch (InterruptedException e1) { e1.printStackTrace(); }
 	        		
 	        		Point p = new Point (aire.myIA.jouer());
 	        		
