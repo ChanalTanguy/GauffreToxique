@@ -63,8 +63,8 @@ public class ActionNewGame implements ActionListener {
 				}
 			}
 
-			this.window.setVisible(false);
-			currentWindow.setVisible(false);
+			window.setEnabled(false);
+			currentWindow.setEnabled(false);
 		} else {
 			JOptionPane.showMessageDialog(null, "La taille doit être comprise entre 3 et 15.", "I AM ERROR", JOptionPane.WARNING_MESSAGE);
 		}
