@@ -65,6 +65,9 @@ public class ActionNewGame implements ActionListener {
 
 			window.dispose();
 			currentWindow.dispose();
+		} else  if ((width == 23) && (height == 81)){
+			ImageIcon borg = new ImageIcon("borg.png");
+			JOptionPane.showMessageDialog(null, "We are the Borg. You will be annihilated.\n Your biological and technological distinctiveness have become irrelevant.\n Resistance is futile... but welcome.", "RESISTANCE IS FUTILE", JOptionPane.WARNING_MESSAGE, borg);
 		} else {
 			JOptionPane.showMessageDialog(null, "La taille doit être comprise entre 3 et 15.", "I AM ERROR", JOptionPane.WARNING_MESSAGE);
 		}
