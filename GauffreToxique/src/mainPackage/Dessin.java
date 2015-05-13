@@ -114,16 +114,16 @@ public class Dessin extends JComponent {
 			    	{
 			    		if(gaufre.verifClick(new Point(i,j)))
 			    		{
-							drawable.drawImage(img, (i+1)*50, (j+1)*50, 50, 50, Color.black, this);
+							drawable.drawImage(img, (i+1)*Constantes.tailleCase, (j+1)*Constantes.tailleCase, Constantes.tailleCase, Constantes.tailleCase, Color.black, this);
 			    		}
 			    		else
 			    		{
-			    			drawable.drawImage(vide, (i+1)*50, (j+1)*50, 50, 50, Color.black, this);
+			    			drawable.drawImage(vide, (i+1)*Constantes.tailleCase, (j+1)*Constantes.tailleCase, Constantes.tailleCase, Constantes.tailleCase, Color.black, this);
 			    		}
 			    	}
 			    }
 				
-				drawable.drawImage(poison, 50, 50, 50, 50, Color.black, this);
+				drawable.drawImage(poison, Constantes.tailleCase, Constantes.tailleCase, Constantes.tailleCase, Constantes.tailleCase , Color.black, this);
 				/*
 				if(chargement)
 				{
