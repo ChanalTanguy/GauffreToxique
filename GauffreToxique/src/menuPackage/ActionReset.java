@@ -41,7 +41,7 @@ public class ActionReset implements ActionListener  {
 		JPanel niv = newGameChoice();
 		window.setTitle("Nouvelle partie");
 		window.setSize(475, 275);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocationRelativeTo(null);  
 		window.getContentPane().add(niv);
 		
