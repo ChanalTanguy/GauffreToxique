@@ -1,4 +1,5 @@
 package mainPackage;
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -12,18 +13,18 @@ public class Graphique {
 	JFrame frame = new JFrame("Blue Waffle");
 	JMenuBar bar = Menu.newMenu(frame);
     Image img = null;
+    JPanel p = Menu.newUndoRedo();
 	
 	//Cas deux joueurs humains
 	public Graphique(Plateau gaufre) {
         Dessin d = new Dessin(gaufre);
-        JPanel p = Menu.newUndoRedo();
 
-        
+   
         d.addMouseListener(new EcouteTerrain(d, gaufre));
-        d.add(p);
         frame.addKeyListener(new Konami(d,gaufre));
         
         frame.add(d);
+        frame.getContentPane().add(p,BorderLayout.SOUTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // On fixe la taille et on demarre
@@ -52,6 +53,7 @@ public class Graphique {
 		frame.addKeyListener(new Konami(d,gaufre));
 		
 		frame.add(d);
+        frame.getContentPane().add(p,BorderLayout.SOUTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// On fixe la taille et on demarre
@@ -84,6 +86,7 @@ public class Graphique {
 		frame.addKeyListener(new Konami(d,gaufre));
 		
 		frame.add(d);
+        frame.getContentPane().add(p,BorderLayout.SOUTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// On fixe la taille et on demarre
