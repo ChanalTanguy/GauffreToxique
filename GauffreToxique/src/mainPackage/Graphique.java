@@ -14,6 +14,7 @@ public class Graphique {
 	JMenuBar bar = Menu.newMenu(frame);
     Image img = null;
     JPanel p = Menu.newUndoRedo();
+    
 	
 	//Cas deux joueurs humains
 	public Graphique(Plateau gaufre) {

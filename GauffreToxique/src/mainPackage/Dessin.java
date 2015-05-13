@@ -23,7 +23,7 @@ public class Dessin extends JComponent {
       
     int tour = 1;  //Tout actif
     int xT, yT;
-        
+
     Random r = new Random();
     int player = (r.nextInt(2))+1; //Choix du joueur qui commence
     
