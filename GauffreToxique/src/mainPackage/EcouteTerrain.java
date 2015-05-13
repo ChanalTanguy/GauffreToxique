@@ -20,7 +20,7 @@ class EcouteTerrain implements MouseListener {
     	{
 	    	if(!aire.intel2) //Dans le cas où il y a deux IA
 	    	{
-	    		if((aire.player == 1 && aire.intel) || !aire.intel) //Dans le cas d'une IA et tour du joueur 1
+	    		if((aire.player == 1 && aire.intel) || !aire.intel) //Dans le cas d'une IA et tour du  1
 	        	{
 	    	    	int x = (e.getX()/50)-1;
 	    	    	int y = (e.getY()/50)-1;
@@ -39,7 +39,7 @@ class EcouteTerrain implements MouseListener {
 	    		       		gaufre.updatePlateau(new Point(x,y));
 	    			    	
 	    			    	aire.player = (aire.player%2)+1;
-	    			    	aire.mess = "To the player " + aire.player;
+	    			    	aire.mess = "Joueur " + aire.player;
 	    			    	aire.tour++;
 	    		    	}
 	    	    	}
@@ -59,7 +59,7 @@ class EcouteTerrain implements MouseListener {
 	        		{
 	    	    		gaufre.updatePlateau(p);	    	    		
 	    		    	aire.player = (aire.player%2)+1;
-	    		    	aire.mess = "To the player " + aire.player;
+	    		    	aire.mess = "Joueur " + aire.player;
 	    		    	aire.tour++;
 	        		}
 	        	}
@@ -79,7 +79,7 @@ class EcouteTerrain implements MouseListener {
 	        		{
 	    	    		gaufre.updatePlateau(p);	    	    		
 	    		    	aire.player = (aire.player%2)+1;
-	    		    	aire.mess = "To the player " + aire.player;
+	    		    	aire.mess = "Joueur " + aire.player;
 	    		    	aire.tour++;
 	        		}
 	    		}
@@ -96,10 +96,15 @@ class EcouteTerrain implements MouseListener {
 	        		{
 	    	    		gaufre.updatePlateau(p);	    	    		
 	    		    	aire.player = (aire.player%2)+1;
-	    		    	aire.mess = "To the player " + aire.player;
+	    		    	aire.mess = "Joueur " + aire.player;
 	    		    	aire.tour++;
 	        		}
 	    		}	
+	    	}
+	    	if(!gaufre.verifClick(new Point(0,1)) && !gaufre.verifClick(new Point(1,0)))
+	    	{
+	    		aire.mess = aire.player + " a perdu";
+	    		aire.the_game = false;
 	    	}
     	}
     	aire.repaint();

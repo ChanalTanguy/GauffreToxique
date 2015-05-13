@@ -37,14 +37,14 @@ public class Dessin extends JComponent {
     public Dessin(Plateau p)
     {
     	gaufre = p;
-    	mess = "To the player " + player ;
+    	mess = "Joueur " + player ;
     }
 
     //Constructeur avec plateau + 1 IA
     public Dessin(Plateau p, InterfaceEntree IA)
     {
     	gaufre = p;
-    	mess = "To the player " + player ;
+    	mess = "Joueur " + player ;
     	intel = true;
     	myIA = IA;
     }
@@ -53,7 +53,7 @@ public class Dessin extends JComponent {
     public Dessin(Plateau p, InterfaceEntree IA1, InterfaceEntree IA2)
     {
     	gaufre = p;
-    	mess = "To the player " + player ;
+    	mess = "Joueur " + player ;
     	intel = true;
     	intel2 = true;
     	myIA = IA1;
@@ -137,7 +137,7 @@ public class Dessin extends JComponent {
 	    	drawable.setPaint(Color.black);
 	    	Font font = new Font("Helvetica", Font.BOLD, 11);
 	    	drawable.setFont(font);
-	    	drawable.drawString(mess,50+(gaufre.getWidth()*Constantes.tailleCase)+27 , 86);
+	    	drawable.drawString(mess,t+(gaufre.getWidth()*Constantes.tailleCase)+38 , 86);
 		    
 		    //Affichage du numéro du tour
 	    	drawable.setColor(Color.white);
