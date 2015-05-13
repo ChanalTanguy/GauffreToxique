@@ -27,6 +27,8 @@ public class Dessin extends JComponent {
     Random r = new Random();
     int player = (r.nextInt(2))+1; //Choix du joueur qui commence
     
+    boolean chargement = false;
+    
     boolean intel = false; //Il y a une IA
     boolean intel2 = false; //Il y a deux IA
     
@@ -79,12 +81,12 @@ public class Dessin extends JComponent {
         cleanPanel(drawable);
 
 	    //Images de base
-	    Image img, poison, fond, vide;
+	    Image img, poison, fond, vide, charge;
 	    
 	    if(the_game)
 	    {
 			try {
-				
+							
 				//Chargement des images
 				if(!konami)
 				{
@@ -92,6 +94,7 @@ public class Dessin extends JComponent {
 					poison = ImageIO.read(new File("gauffre_e.png"));
 					fond = ImageIO.read(new File("texture.png"));
 					vide = ImageIO.read(new File("texture_m.png"));
+					charge = ImageIO.read(new File("chargement.png"));
 				}
 				else
 				{
@@ -99,6 +102,7 @@ public class Dessin extends JComponent {
 					poison = ImageIO.read(new File("gauffre_konami_e.png"));
 					fond = ImageIO.read(new File("texture_konami.png"));
 					vide = ImageIO.read(new File("texture_konami_m.png"));
+					charge = ImageIO.read(new File("chargement.png"));
 				}
 				
 				drawable.drawImage(fond, null, this);
@@ -119,8 +123,14 @@ public class Dessin extends JComponent {
 			    	}
 			    }
 				
-				//Dans tous les cas, le poison reste
 				drawable.drawImage(poison, 50, 50, 50, 50, Color.black, this);
+				/*
+				if(chargement)
+				{
+					System.out.print("yolo");
+					drawable.fillRect(0, 0, getWidth(), getHeight());
+					drawable.drawImage(charge, getWidth()-50, getHeight()-50,50, 50, Color.black, this);
+				}*/
 		
 			} 
 			catch (IOException e) { e.printStackTrace();}
