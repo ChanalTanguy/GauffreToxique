@@ -48,6 +48,7 @@ class EcouteTerrain implements MouseListener {
 	        	//Coup de l'IA
 	        	else
 	        	{
+	        		
 	        		Point p = new Point (aire.myIA.jouer());
 	        		
 	        		if(gaufre.verifCaseEmpoisonnee(p))
