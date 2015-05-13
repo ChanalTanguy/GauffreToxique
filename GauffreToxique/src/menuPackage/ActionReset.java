@@ -9,8 +9,8 @@ import javax.swing.*;
 public class ActionReset implements ActionListener  {
 	String selected1 = "Humain";
 	String selected2 = "Humain";
-	JTextField width;
-	JTextField height;
+	JTextField width = new JTextField("5");
+	JTextField height = new JTextField("5");
 	JFrame currentWindow;
 	
 	public ActionReset(JFrame f) {
@@ -90,9 +90,7 @@ public class ActionReset implements ActionListener  {
 		size.setPreferredSize(new Dimension(440, 60));
 		JLabel labelW = new JLabel("Largeur : ");
 		JLabel labelH = new JLabel("Hauteur : ");
-		width = new JTextField("5");
 		width.setPreferredSize(new Dimension(30, 25));
-		height = new JTextField("5");
 		height.setPreferredSize(new Dimension(30, 25));
 		size.add(labelW); size.add(width); size.add(labelH); size.add(height); 
 		return size;
