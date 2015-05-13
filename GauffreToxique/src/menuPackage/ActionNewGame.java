@@ -64,7 +64,16 @@ public class ActionNewGame implements ActionListener {
 			}
 
 			window.dispose();
-			currentWindow.dispose();
+			currentWindow.dispose();} 
+		else if ((width == 20) && (height == 07)){
+				ImageIcon cyber = new ImageIcon("cyber.png");
+				JOptionPane.showMessageDialog(null, "This broadcast is for humankind. Cybermen now occupy every landmass on this planet.\n But you need not fear. Cybermen will remove fear.\n Cybermen will remove sex, and class, and colour, and creed.\n You will become identical. You will become like us.", "DELETE", JOptionPane.WARNING_MESSAGE, cyber);
+		} else if ((width == 21) && (height == 64)){
+			ImageIcon dalek = new ImageIcon("dalek.png");
+			JOptionPane.showMessageDialog(null, "Rebels of London! This is our last warning! Our final offer!\n Show yourselves in the open streets. You will be fed and watered, but work is needed from you.\n The Daleks offer you life! Rebel against us and the Daleks shall destroy London completely.\n Rebels of London, come out of your hiding places. The Daleks offer you life!", "EXTERMINATE", JOptionPane.WARNING_MESSAGE, dalek);
+		} else if ((width == 23) && (height == 81)){
+			ImageIcon borg = new ImageIcon("borg.png");
+			JOptionPane.showMessageDialog(null, "We are the Borg. You will be annihilated.\n Your biological and technological distinctiveness have become irrelevant.\n Resistance is futile... but welcome.", "RESISTANCE IS FUTILE", JOptionPane.WARNING_MESSAGE, borg);
 		} else {
 			JOptionPane.showMessageDialog(null, "La taille doit être comprise entre 3 et 15.", "I AM ERROR", JOptionPane.WARNING_MESSAGE);
 		}
