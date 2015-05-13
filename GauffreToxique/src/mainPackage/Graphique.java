@@ -1,4 +1,9 @@
 package mainPackage;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import menuPackage.Menu;
@@ -6,12 +11,16 @@ import menuPackage.Menu;
 public class Graphique {
 	JFrame frame = new JFrame("Blue Waffle");
 	JMenuBar bar = Menu.newMenu(frame);
+    Image img = null;
 	
 	//Cas deux joueurs humains
 	public Graphique(Plateau gaufre) {
         Dessin d = new Dessin(gaufre);
+        JPanel p = Menu.newUndoRedo();
 
+        
         d.addMouseListener(new EcouteTerrain(d, gaufre));
+        d.add(p);
         frame.addKeyListener(new Konami(d,gaufre));
         
         frame.add(d);
@@ -20,6 +29,16 @@ public class Graphique {
         // On fixe la taille et on demarre
         frame.setSize(gaufre.getWidth()*Constantes.tailleCase+200, gaufre.getHeight()*Constantes.tailleCase+25+25+100);
         frame.setJMenuBar(bar);
+        
+        //Icone
+        try
+        {
+        	img = ImageIO.read(new File("icone.png"));
+        	frame.setIconImage(img);
+
+        }
+        catch (IOException e) { e.printStackTrace();}
+
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
@@ -38,6 +57,16 @@ public class Graphique {
 		// On fixe la taille et on demarre
 		frame.setSize(gaufre.getWidth()*Constantes.tailleCase+200, gaufre.getHeight()*Constantes.tailleCase+25+25+100);
 		frame.setJMenuBar(bar);
+		
+        //Icone
+        try
+        {
+        	img = ImageIO.read(new File("icone.png"));
+        	frame.setIconImage(img);
+
+        }
+        catch (IOException e) { e.printStackTrace();}
+        
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -60,6 +89,16 @@ public class Graphique {
 		// On fixe la taille et on demarre
 		frame.setSize(gaufre.getWidth()*Constantes.tailleCase+200, gaufre.getHeight()*Constantes.tailleCase+25+25+100);
 		frame.setJMenuBar(bar);
+		
+        //Icone
+        try
+        {
+        	img = ImageIO.read(new File("icone.png"));
+        	frame.setIconImage(img);
+
+        }
+        catch (IOException e) { e.printStackTrace();}
+		
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
