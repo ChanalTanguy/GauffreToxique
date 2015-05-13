@@ -27,6 +27,11 @@ public class Menu {
 		ActionLoad action_load = new ActionLoad();
 		load.addActionListener(action_load);
 		file.add(load);
+		file.addSeparator();
+		JMenuItem quit = new JMenuItem("Quitter");
+		ActionQuit actionQuit = new ActionQuit(frame);
+		quit.addActionListener(actionQuit);
+		file.add(quit);
 
 		JMenu edit = new JMenu("Édition");
 
