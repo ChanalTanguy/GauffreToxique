@@ -65,7 +65,11 @@ public class ActionNewGame implements ActionListener {
 
 			window.dispose();
 			currentWindow.dispose();
-		} else  if ((width == 23) && (height == 81)){
+		} else if ((width == 21) && (height == 64)){
+			ImageIcon dalek = new ImageIcon("dalek.png");
+			JOptionPane.showMessageDialog(null, "Rebels of London! This is our last warning! Our final offer!\n Show yourselves in the open streets. You will be fed and watered, but work is needed from you.\n The Daleks offer you life! Rebel against us and the Daleks shall destroy London completely.\n Rebels of London, come out of your hiding places. The Daleks offer you life!", "EXTERMINATE", JOptionPane.WARNING_MESSAGE, dalek);
+
+		} else if ((width == 23) && (height == 81)){
 			ImageIcon borg = new ImageIcon("borg.png");
 			JOptionPane.showMessageDialog(null, "We are the Borg. You will be annihilated.\n Your biological and technological distinctiveness have become irrelevant.\n Resistance is futile... but welcome.", "RESISTANCE IS FUTILE", JOptionPane.WARNING_MESSAGE, borg);
 		} else {
